@@ -1,8 +1,19 @@
 <app-header />
 <main>
   <ul id="users">
+    @for (user of users ;track user.id){
     <li>
-      <app-user />
+      <user-list [userObj]="user" (select)="onSelect($event)" />
     </li>
+    }
+    <!-- <li *ngFor="let user of users">
+      <user-list [userObj]="user" (select)="onSelect($event)" />
+    </li> -->
   </ul>
+  @if(selectedUserId()!==''){
+  <app-tasks [userName]="userName()"></app-tasks>
+
+  } @else{
+  <div id="fallback">Please select a user</div>
+  }
 </main>

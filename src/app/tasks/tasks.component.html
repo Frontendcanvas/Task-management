@@ -1,0 +1,16 @@
+<section id="tasks">
+  <header>
+    <h2>{{ userName() }} 's Task</h2>
+    <menu>
+      <button>Add Task</button>
+    </menu>
+  </header>
+  <ul>
+    @for(task of taskArray(); track task.id) {
+    <li>
+      {{ task.summary }}---{{ task.userId }}
+      <app-task />
+    </li>
+    }
+  </ul>
+</section>
